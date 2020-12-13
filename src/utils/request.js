@@ -16,6 +16,8 @@ export function request(method, functionName, data) {
         method: method,
         json: data,
         headers,
+        credentials: "include",
+        mode: "cors"
     }).json()
         // .catch(async error => {
         //     console.log("🚀 ~ error", error)

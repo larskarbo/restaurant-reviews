@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import logo from "./logo.svg";
 import { request } from "./utils/request";
 
 
 function Login({ register }) {
 
+  let history = useHistory();
+  let location = useLocation();
   const [msg, setMsg] = useState(null)
   useEffect(() => {
     setMsg(null)
@@ -22,7 +24,16 @@ function Login({ register }) {
       username,
       password
     }).then(res => {
-
+      console.log("🚀 ~ res", res)
+      if(res.role == "user"){
+        history.push("/restaurants")
+      } else if (res.role == "owner"){
+        history.push("/owner-view")
+      } else if (res.role == "admin"){
+        history.push("/admin-view")
+      } else {
+        alert("no role")
+      }
     }).catch(error => {
       if (error.message == "Unauthorized") {
         setMsg("Wrong username or password, please try again.")
@@ -42,7 +53,7 @@ function Login({ register }) {
       username,
       password
     }).then(res => {
-
+      history.push("/restaurants")
     }).catch(error => {
       if (error.message == "Conflict") {
         setMsg("Username " + username + " already in use.")
@@ -78,9 +89,9 @@ function Login({ register }) {
         </form>
       </div>
       {register ?
-        <span className="my-2 text-sm opacity-50">Already got an account? <Link to="/login">Login</Link></span>
+        <span className="my-2 text-sm opacity-50">Already got an account? <Link  className="link" to="/login">Login</Link></span>
         :
-        <span className="my-2 text-sm opacity-50">No account yet? <Link to="/register">Register</Link></span>
+        <span className="my-2 text-sm opacity-50">No account yet? <Link  className="link" to="/register">Register</Link></span>
       }
     </>
   );

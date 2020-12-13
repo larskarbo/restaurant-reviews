@@ -1,1 +1,82 @@
-{}
+{
+  "users": [
+    {
+      "username": "larskarbo",
+      "passwordHash": "qwerty",
+      "role": "user"
+    },
+    {
+      "username": "horse",
+      "passwordHash": "dsofijfsdoijf"
+    },
+    {
+      "username": "horsesdfds",
+      "passwordHash": "dsofijfsdoijf"
+    },
+    {
+      "username": "horsesdfdsoij",
+      "passwordHash": "dsofijfsdoijf",
+      "role": "user"
+    },
+    {
+      "username": "mail@larskarbo.no",
+      "passwordHash": "qsojxpditmcdapuwfutedntqafggoyaqxavgqlfovykdbkxoxa",
+      "role": "user"
+    }
+  ],
+  "restaurants": [
+    {
+      "id": "1234-1234",
+      "name": "Hey Ho",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    },
+    {
+      "id": "5098-1529",
+      "name": "MacDonalds LA",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    }
+  ],
+  "reviews": [
+    {
+      "id": "8668-7125",
+      "user": "larskarbo",
+      "role": "user",
+      "restaurant": "1234-1234",
+      "rating": 5,
+      "dateOfVisit": "2020-12-04",
+      "text": "This is the best restaurant I have ever visited! Would love to come back."
+    },
+    {
+      "id": "9708-8146",
+      "user": "larskarbo",
+      "restaurant": "5098-1529",
+      "rating": 2,
+      "dateOfVisit": "2020-12-06",
+      "text": "I hate macdonalds\n\nIt is very bad."
+    },
+    {
+      "rating": "1",
+      "text": "oijij",
+      "user": "larskarbo",
+      "restaurant": "1234-1234",
+      "dateOfVisit": "2020-12-03",
+      "id": "0a7082c6-526a-40a9-8b18-52504e9148ad"
+    },
+    {
+      "rating": "1",
+      "text": "asdfsdf",
+      "user": "larskarbo",
+      "restaurant": "1234-1234",
+      "dateOfVisit": "2020-12-02",
+      "id": "e770087d-1a83-48ee-abcb-96963bbd5fbb"
+    },
+    {
+      "rating": "2",
+      "text": "safsd",
+      "user": "mail@larskarbo.no",
+      "restaurant": "5098-1529",
+      "dateOfVisit": "2020-12-11",
+      "id": "0bf87984-04ce-4c6e-87f2-d7353c64c1de"
+    }
+  ]
+}
