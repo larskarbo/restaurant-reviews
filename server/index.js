@@ -5,6 +5,7 @@ var cors = require('cors')
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
 
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 var bodyParser = require('body-parser')
 app.use(bodyParser.json());       // to support JSON-encoded bodies
@@ -98,7 +99,12 @@ app.post("/login", async (req, res) => {
     res.status(401).send({ success: false, message: "username not found" })
     return
   }
-  if (userValue.passwordHash != password) {
+  const result = await new Promise(resolve => {
+    bcrypt.compare(password, userValue.passwordHash, function (err, result) {
+      resolve(result)
+    });
+  })
+  if (!result) {
     res.status(401).send({ success: false });
     return
   }
@@ -115,7 +121,10 @@ app.post("/login", async (req, res) => {
 
   //send the access token to the client inside a cookie
   res.cookie("jwt", accessToken, { secure: false, httpOnly: true })
-  res.send(userValue)
+  res.send({
+    username,
+    role: userValue.role
+  })
 });
 
 app.get("/logout", async (req, res) => {
@@ -133,11 +142,21 @@ app.post("/register", async (req, res) => {
   if (userExists) {
     res.status(409).send({ success: false, message: "username already in use" })
   } else {
-    const userValue={ username, passwordHash: password, role: "user" }
+    const passwordHash = await new Promise((resolve) => {
+      bcrypt.hash(password, 10, function (err, hash) {
+        // Store hash in your password DB.
+        resolve(hash)
+      });
+    })
+    const userValue = {
+      username,
+      passwordHash,
+      role: "user"
+    }
     db.get('users')
       .push(userValue)
       .write()
-    
+
     //use the payload to store information about the user such as username, user role, etc.
     let payload = { username: username }
 
@@ -149,7 +168,10 @@ app.post("/register", async (req, res) => {
 
     //send the access token to the client inside a cookie
     res.cookie("jwt", accessToken, { secure: false, httpOnly: true })
-    res.send(userValue)
+    res.send({
+      username,
+      role: userValue.role
+    })
   }
 });
 

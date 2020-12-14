@@ -22,6 +22,11 @@
       "username": "mail@larskarbo.no",
       "passwordHash": "qsojxpditmcdapuwfutedntqafggoyaqxavgqlfovykdbkxoxa",
       "role": "user"
+    },
+    {
+      "username": "larskarbo1234",
+      "passwordHash": "$2b$10$OVL/b9TjvhRO/gHFo45jn.pRwnbJiGEDg73nLo3vTmcaBvDfeQH4m",
+      "role": "user"
     }
   ],
   "restaurants": [
@@ -77,6 +82,14 @@
       "restaurant": "5098-1529",
       "dateOfVisit": "2020-12-11",
       "id": "0bf87984-04ce-4c6e-87f2-d7353c64c1de"
+    },
+    {
+      "rating": "5",
+      "text": "hey, was good",
+      "user": "mail@larskarbo.no",
+      "restaurant": "1234-1234",
+      "dateOfVisit": "2020-12-31",
+      "id": "c6ecdb7f-7280-4dca-9018-309e2d2aea0b"
     }
   ]
 }
