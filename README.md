@@ -99,4 +99,3 @@ The CORS origin setting in `server/app.js` should also be updated to point to th
 - If it’s a web application, it must be a single-page application. All actions need to be done client-side using AJAX, refreshing the page is not acceptable.
 - Functional UI/UX design is needed. You are not required to create a unique design, however, do follow best practices to make the project as functional as possible.
 - Bonus: unit and e2e tests.
-- Add nice README
