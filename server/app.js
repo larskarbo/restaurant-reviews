@@ -23,6 +23,7 @@ const { getRestaurant } = require("./restaurant/getRestaurant");
 const { getMyRestaurants } = require("./restaurant/getMyRestaurants");
 const { getRestaurants } = require("./restaurant/getRestaurants");
 const { addReview } = require("./review/addReview");
+const { editReview } = require("./review/editReview");
 const { login } = require("./user/login");
 const { logout } = require("./user/logout");
 const { register } = require("./user/register");
@@ -44,6 +45,7 @@ app.get("/restaurants/:restaurantId", verify, getRestaurant);
 
 // reviews
 app.post("/reviews/add", verify, addReview);
+app.post("/reviews/edit", verify, editReview);
 
 // user
 app.get("/getUser", verify, async (req, res) => {
