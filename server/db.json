@@ -24,6 +24,11 @@
       "username": "admin",
       "passwordHash": "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
       "role": "admin"
+    },
+    {
+      "username": "Cyri49",
+      "passwordHash": "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
+      "role": "user"
     }
   ],
   "restaurants": [
@@ -201,7 +206,8 @@
       "rating": 4,
       "text": "Roberta's is the epicenter of the modern Brooklyn food scene.The pizzas are fantastic, but the restaurant really flexes its muscles with the vegetable dishes. In addition to the pies, consider ordering the radishes, the romaine salad, the roasted beets, and some of the charcuterie.",
       "dateOfVisit": "2020-12-04",
-      "restaurant": "f9c6cf78-d2b6-4004-b9cd-168aca51a278"
+      "restaurant": "f9c6cf78-d2b6-4004-b9cd-168aca51a278",
+      "commentFromOwner": "Happy you liked it! See you soon ✌🏼\n"
     },
     {
       "id": "69841b1e-a582-4b2b-84b2-e598bc0f0521",
@@ -339,6 +345,14 @@
       "text": "For a Michelin star restaurant, it's fairly priced and the food is fairly good. Started with a strawberry margarita which was good in flavor but not much alcohol. Had the chicken enchiladas with salsa verde and it was really good. Great balance in flavor and a good portion. Extra tasty with their hot sauces. My wife had the lamb but it was a bit too salty for our taste. Although, it was cooked very well and fell off the bone. The highlight of the night was the tres leches cake. Probably the best I've ever had to be honest. Not too sweet and very milky. Overall, one of my top 3 favorite Mexican in NY.",
       "dateOfVisit": "2020-12-04",
       "restaurant": "384bfebf-9a6b-4322-b8aa-3df21454e544"
+    },
+    {
+      "rating": "5",
+      "text": "This restaurant was pretty awesome!! Perfect for a wedding party! 😋",
+      "user": "Cyri49",
+      "restaurant": "7bb3fa34-3014-47d4-b324-d6ae4ef033bf",
+      "dateOfVisit": "2020-12-15",
+      "id": "150711bb-281e-47d2-8955-4ea150e93369"
     }
   ]
 }
