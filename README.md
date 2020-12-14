@@ -2,7 +2,7 @@
 
 sat: 4 h
 sun: 3 h
-mon: 08:00
+mon: 08:00-11:00
 
 [] AUTH system. (password, username)
 
@@ -29,3 +29,4 @@ mon: 08:00
 ✅ If it’s a web application, it must be a single-page application. All actions need to be done client-side using AJAX, refreshing the page is not acceptable.
 ✅ Functional UI/UX design is needed. You are not required to create a unique design, however, do follow best practices to make the project as functional as possible.
 - Bonus: unit and e2e tests.
+- Add nice README

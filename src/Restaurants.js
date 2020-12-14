@@ -50,7 +50,7 @@ function Restaurants({ children, ownerView, user }) {
 
   return (
     <WideContainer>
-      <h1 className="text-6xl font-bold mb-4">Restaurants</h1>
+      <h1 className="text-6xl font-bold mb-4">{ownerView ? "My restaurants" : "Restaurants"}</h1>
 
       <div className="w-40">
         Filter by rating
