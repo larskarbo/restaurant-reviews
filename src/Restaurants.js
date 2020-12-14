@@ -1,9 +1,7 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from "./logo.svg"
 import { request } from './utils/request';
 import WideContainer from './WideContainer';
-import StarRatings from "react-star-ratings"
 import { Slider } from '@material-ui/core';
 
 const marks = [
@@ -32,10 +30,6 @@ const marks = [
     label: '5',
   },
 ];
-
-function valueLabelFormat(value) {
-  return marks.findIndex((mark) => mark.value === value) + 1;
-}
 
 function Restaurants({ children, ownerView, user }) {
   const [restaurants, setRestaurants] = useState([])
@@ -76,7 +70,7 @@ function Restaurants({ children, ownerView, user }) {
                 <div className="flex flex-row">
                   <div className="mr-2">
                     <span className="inline-flex items-center justify-center h-12 w-12  bg-gray-200 mt-1">
-                      <img src={"/" +r.img} />
+                      <img src={"/" +r.img} alt={"Image of restaurant " + r.name} />
                     </span>
                   </div>
                   <div className="flex flex-grow flex-col">
@@ -88,7 +82,7 @@ function Restaurants({ children, ownerView, user }) {
                   </div>
                   <div>
                     {
-                      (r.owner == user.username) &&
+                      (r.owner === user.username) &&
                       <span className={"px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800 "}>
                        {r.reviewsNeedingComment} reviews needing comment!
                       </span>

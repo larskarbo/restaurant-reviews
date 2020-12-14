@@ -4,14 +4,12 @@ const FileSync = require('lowdb/adapters/FileSync')
 const { users } = require("./exampleData.js")
 const dummydata = require("./restaurants.json")
 const randomItem = require('random-item');
-console.log("🚀 ~ dummydata", dummydata)
 const uuid = require("uuid")
 
 let reviews = []
 const restaurants = dummydata.restaurants.map(r => {
   const rid = uuid.v4()
   r.reviews.forEach(review => {
-    console.log(review)
     reviews.push({
       id: uuid.v4(),
       user: randomItem(users.filter(u => u.role == "user").map(u => u.username)),

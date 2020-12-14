@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const port = 3200;
 var cors = require('cors')
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
 
@@ -30,7 +29,7 @@ const { register } = require("./user/register");
 
 
 app.get("/", async (req, res) => {
-  res.send({ message: "API up and running" });
+  res.send({ status: "Ok" });
 });
 
 app.get("/testauth", verify, async (req, res) => {
@@ -54,5 +53,12 @@ app.post("/login", login);
 app.get("/logout", logout);
 app.post("/register", register);
 
-// run the app!
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+app.all("/*", (req, res) => {
+  return res.status(404).send({
+    status: "Not found"
+  })
+});
+
+
+module.exports = app

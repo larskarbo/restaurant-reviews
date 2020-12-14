@@ -17,7 +17,7 @@ const login = async (req, res) => {
     });
   });
   if (!result) {
-    res.status(401).send({ success: false });
+    res.status(401).send({ success: false, message: "wrong password" });
     return;
   }
 
@@ -26,9 +26,9 @@ const login = async (req, res) => {
 
   //create the access token with the shorter lifespan
   console.log("🚀 ~ payload", payload);
-  let accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
+  let accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET || "no secret", {
     algorithm: "HS256",
-    expiresIn: process.env.ACCESS_TOKEN_LIFE
+    expiresIn: "30d"
   });
 
   //send the access token to the client inside a cookie

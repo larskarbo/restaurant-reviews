@@ -5,6 +5,14 @@ const { db } = require("../database");
 const register = async (req, res) => {
   var username = req.body.username;
   var password = req.body.password;
+
+  if(!username) {
+    return res.status(400).send({message: "username is missing"})
+  }
+  if(!password) {
+    return res.status(400).send({message: "password is missing"})
+  }
+
   const userExists = db.get('users').find({ username }).value();
   if (userExists) {
     res.status(409).send({ success: false, message: "username already in use" });
@@ -28,9 +36,9 @@ const register = async (req, res) => {
     let payload = { username: username };
 
     //create the access token with the shorter lifespan
-    let accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
+    let accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET || "no secret", {
       algorithm: "HS256",
-      expiresIn: process.env.ACCESS_TOKEN_LIFE
+      expiresIn: "30d"
     });
 
     //send the access token to the client inside a cookie
