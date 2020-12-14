@@ -2,6 +2,8 @@
 
 <img src="./src/logo.svg" />
 
+<img src="./screenshot.png" />
+
 ----
 
 This project consists of a **frontend** and a **backend**.
@@ -49,6 +51,16 @@ yarn start
 ```
 
 It should now pop up at http://localhost:3000
+
+## Default users
+
+To test, feel free to use these test accounts:
+
+Normal user - username:"larskarbo" password:"asdf"
+Normal user - username:"goatman" password:"asdf"
+Owner - username:"owner1234" password:"asdf"
+Owner - username:"superowner" password:"asdf"
+Amind - username:"admin" password:"asdf"
 
 ## Production
 

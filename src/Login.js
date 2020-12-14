@@ -32,7 +32,7 @@ function Login({ register, onUser }) {
         } else if (res.role == "owner"){
           history.push("/my-restaurants")
         } else if (res.role == "admin"){
-          history.push("/admin-view")
+          history.push("/restaurants")
         } else {
           alert("no role")
         }

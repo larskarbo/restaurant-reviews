@@ -19,6 +19,11 @@ const users = [
         passwordHash: "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
         role: "owner"
     },
+    {
+        username: "admin",
+        passwordHash: "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
+        role: "admin"
+    },
 ]
 
 

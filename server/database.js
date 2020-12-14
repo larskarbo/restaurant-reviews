@@ -1,7 +1,7 @@
 const low = require('lowdb')
 const lorem = require('lorem-ipsum')
 const FileSync = require('lowdb/adapters/FileSync')
-const { users } = require("./exampleData.js")
+const { users } = require("./defaultUsers.js")
 const dummydata = require("./restaurants.json")
 const randomItem = require('random-item');
 const uuid = require("uuid")
