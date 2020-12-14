@@ -61,7 +61,7 @@ function App() {
             <Restaurants user={user} ownerView={true} />
           </PrivateRoute>
           <PrivateRoute user={user} path="/restaurants/:restaurantId">
-            <Restaurant />
+            <Restaurant user={user} />
 
           </PrivateRoute>
           {/* <Route path="/receive/:target">

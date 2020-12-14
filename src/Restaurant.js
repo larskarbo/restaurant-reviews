@@ -6,7 +6,7 @@ import WideContainer from "./WideContainer";
 import StarRatings from "react-star-ratings";
 import moment from "moment";
 
-function Restaurant({ children }) {
+function Restaurant({ children, user }) {
   const [restaurant, setRestaurant] = useState(null);
   const [updateCount, setUpdateCount] = useState(0);
   const { restaurantId } = useParams();
@@ -14,7 +14,6 @@ function Restaurant({ children }) {
 
   useEffect(() => {
     request("GET", "/restaurants/" + restaurantId).then((r) => {
-      console.log("🚀 ~ r", r);
       setRestaurant(r);
     });
   }, [updateCount]);
@@ -48,7 +47,7 @@ function Restaurant({ children }) {
   let lowestRated
   if (restaurant?.reviews?.length > 2) {
     highestRated = restaurant?.reviews?.reduce((highest, review) => review.rating > highest.rating ? review : highest, { rating: 0 })
-    lowestRated = restaurant?.reviews?.reduce((lowest, review) => review.rating < lowest.rating ? review : lowest, { rating: 6 })
+    lowestRated = restaurant?.reviews?.reduce((lowest, review) => (review.rating < lowest.rating && review.id != highestRated.id) ? review : lowest, { rating: 6 })
     reviews = reviews
       .filter(r => r.id != lowestRated.id)
       .filter(r => r.id != highestRated.id)
@@ -71,7 +70,7 @@ function Restaurant({ children }) {
               <div className="font-medium mt-6 text-xl">Highest rated review</div>
 
               <div className="bg-white shadow w-full overflow-hidden sm:rounded-md my-3">
-                <ul><ReviewLI
+                <ul><ReviewLI user={user}
                   restaurant={restaurant}
                   r={highestRated}
                   setUpdateCount={setUpdateCount} /></ul>
@@ -84,7 +83,7 @@ function Restaurant({ children }) {
               <div className="font-medium mt-6 text-xl">Lowest rated review</div>
 
               <div className="bg-white shadow w-full overflow-hidden sm:rounded-md my-3">
-                <ul><ReviewLI restaurant={restaurant}
+                <ul><ReviewLI user={user} restaurant={restaurant}
                   r={lowestRated}
                   setUpdateCount={setUpdateCount} /></ul>
               </div>
@@ -97,7 +96,7 @@ function Restaurant({ children }) {
             <ul>
               {reviews
                 .map((r) => (
-                  <ReviewLI key={r.id} restaurant={restaurant} r={r} setUpdateCount={setUpdateCount} />
+                  <ReviewLI user={user} key={r.id} restaurant={restaurant} r={r} setUpdateCount={setUpdateCount} />
                 ))}
             </ul>
           </div>
@@ -152,7 +151,7 @@ function Restaurant({ children }) {
 export default Restaurant;
 
 
-const ReviewLI = ({ r, restaurant, setUpdateCount }) => {
+const ReviewLI = ({ r, restaurant, setUpdateCount, user }) => {
   const [open, setOpen] = useState(false)
   const [comment, setComment] = useState(r.commentFromOwner)
   const formRef = useRef()
@@ -208,30 +207,35 @@ const ReviewLI = ({ r, restaurant, setUpdateCount }) => {
         </div>
       }
 
-      {!open &&
-        <button onClick={() => { setOpen(true); }} className="cursor-pointer mt-3 py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-700 cursor-default focus:outline-none focus:border-gray-700 focus:shadow-outline-indigo active:bg-gray-700 transition duration-150 ease-in-out">
-          {r.commentFromOwner ? "Edit" : "Add"} comment
+      {(restaurant.owner == user.username || user.role == "admin") &&
+        <>
+          {!open &&
+            <button onClick={() => { setOpen(true); }} className="cursor-pointer mt-3 py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-700 cursor-default focus:outline-none focus:border-gray-700 focus:shadow-outline-indigo active:bg-gray-700 transition duration-150 ease-in-out">
+              {r.commentFromOwner ? "Edit" : "Add"} comment
           </button>
-      }
-      <form ref={formRef} onSubmit={addComment}>
+          }
+          <form ref={formRef} onSubmit={addComment}>
 
-        {open &&
-          <div className="flex flex-col max-w-md">
-            <div className="form-group">
-              <label htmlFor="commentFromOwner">Review</label>
-              <textarea value={comment} onChange={e => setComment(e.target.value)} name="commentFromOwner" placeholder="Your response..." className="border border-gray-400 "></textarea>
-            </div>
-            <span className="block w-full rounded-md shadow-sm">
-              <button
-                type="submit"
-                className="lars-button"
-              >
-                Save comment
+            {open &&
+              <div className="flex flex-col max-w-md">
+                <div className="form-group">
+                  <label htmlFor="commentFromOwner">Review</label>
+                  <textarea value={comment} onChange={e => setComment(e.target.value)} name="commentFromOwner" placeholder="Your response..." className="border border-gray-400 "></textarea>
+                </div>
+                <span className="block w-full rounded-md shadow-sm">
+                  <button
+                    type="submit"
+                    className="lars-button"
+                  >
+                    Save comment
               </button>
-            </span>
-          </div>
-        }
-      </form>
+                </span>
+              </div>
+            }
+
+          </form>
+        </>
+      }
     </li>
   )
 }
