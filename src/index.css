@@ -4,5 +4,24 @@
 @tailwind utilities;
 
 a.link {
-    @apply text-blue-500
+    @apply text-blue-500;
+}
+
+.form-group label {
+    @apply block;
+    @apply text-sm;
+    @apply font-medium;
+    @apply leading-5;
+    @apply text-gray-700;
+    @apply mt-3;
+}
+
+.form-group input, .form-group textarea {
+    @apply block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border;
+    @apply border-gray-300 rounded-md appearance-none;
+    @apply focus:outline-none focus:shadow-sm focus:border-blue-300 sm:text-sm sm:leading-5;
+}
+
+.lars-button {
+    @apply w-full flex justify-center cursor-pointer py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-700 cursor-default focus:outline-none focus:border-gray-700 transition duration-150 ease-in-out;
 }

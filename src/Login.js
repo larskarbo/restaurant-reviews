@@ -4,7 +4,7 @@ import logo from "./logo.svg";
 import { request } from "./utils/request";
 
 
-function Login({ register }) {
+function Login({ register, onUser }) {
 
   let history = useHistory();
   let location = useLocation();
@@ -25,15 +25,18 @@ function Login({ register }) {
       password
     }).then(res => {
       console.log("🚀 ~ res", res)
-      if(res.role == "user"){
-        history.push("/restaurants")
-      } else if (res.role == "owner"){
-        history.push("/owner-view")
-      } else if (res.role == "admin"){
-        history.push("/admin-view")
-      } else {
-        alert("no role")
-      }
+      onUser(res)
+
+        if(res.role == "user"){
+          history.push("/restaurants")
+        } else if (res.role == "owner"){
+          history.push("/my-restaurants")
+        } else if (res.role == "admin"){
+          history.push("/admin-view")
+        } else {
+          alert("no role")
+        }
+
     }).catch(error => {
       if (error.message == "Unauthorized") {
         setMsg("Wrong username or password, please try again.")
@@ -53,6 +56,7 @@ function Login({ register }) {
       username,
       password
     }).then(res => {
+      onUser(res)
       history.push("/restaurants")
     }).catch(error => {
       if (error.message == "Conflict") {
@@ -99,10 +103,10 @@ function Login({ register }) {
 
 
 const FormElement = ({ label, name, ...inputProps }) => (
-  <>
+  <div className="form-group">
     <label
       htmlFor={name}
-      className="block text-sm font-medium leading-5 text-gray-700 mt-3"
+      className=""
     >
       {label}
     </label>
@@ -115,10 +119,10 @@ const FormElement = ({ label, name, ...inputProps }) => (
         // placeholder=""
         required=""
         {...inputProps}
-        className="block w-full px-3 py-2 placeholder-gray-400 transition duration-150 ease-in-out border border-gray-300 rounded-md appearance-none focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+        className=""
       />
     </div>
-  </>
+  </div>
 )
 
 export default Login;

@@ -5,45 +5,65 @@ import {
   Route,
   Link,
   useLocation,
-  useHistory
+  useHistory,
+  Redirect
 } from "react-router-dom";
 import Layout from './Layout';
 import Intro from './Intro';
 import Login from './Login';
 import Restaurants from './Restaurants';
 import Restaurant from './Restaurant';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { request } from "./utils/request";
 
 function App() {
+  const [user, setUser] = useState(null)
+  const [loadingUser, setLoadingUser] = useState(true)
 
+  useEffect(() => {
+    request("GET", "/getUser").then(user => {
+    console.log("🚀 ~ user", user)
+      setUser(user)
+    })
+    .finally(() => {
+      setLoadingUser(false)
+    })
+  }, [])
+
+  if(loadingUser){
+    return "Loading..."
+  }
+
+  console.log("user", user)
 
   return (
 
     <Router>
-      <Layout>
+      <Layout user={user}>
         <Switch>
           <Route exact path="/">
-            <Intro />
+            <Intro user={user} />
 
           </Route>
           <Route path="/login">
-            <Login register={false} />
-          </Route>
-          <Route path="/logout">
-            <Logout />
+            <Login onUser={(user) => setUser(user)} register={false} />
           </Route>
           <Route path="/register">
-            <Login register={true} />
+            <Login onUser={(user) => setUser(user)} register={true} />
           </Route>
-          <Route exact path="/restaurants">
-            <Restaurants />
-
+          <Route path="/logout">
+            <Logout onLogout={() => setUser(null)} />
           </Route>
-          <Route path="/restaurants/:restaurantId">
+          <PrivateRoute user={user} exact path="/restaurants">
+            <Restaurants user={user} />
+          </PrivateRoute>
+          <PrivateRoute user={user} exact path="/my-restaurants">
+            <Restaurants user={user} ownerView={true} />
+          </PrivateRoute>
+          <PrivateRoute user={user} path="/restaurants/:restaurantId">
             <Restaurant />
 
-          </Route>
+          </PrivateRoute>
           {/* <Route path="/receive/:target">
           <Receive />
         </Route> */}
@@ -56,12 +76,32 @@ function App() {
   );
 }
 
+function PrivateRoute({ children, user, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        user ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/login"
+            }}
+          />
+        )
+      }
+    />
+  );
+}
+
 export default App;
 
-const Logout = () => {
+const Logout = ({onLogout}) => {
   let history = useHistory();
   useEffect(() => {
     request("GET", "/logout").then(() => {
+      onLogout()
       history.push("/")
     })
   },[])

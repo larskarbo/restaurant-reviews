@@ -1,53 +1,27 @@
-const users = [{
-    username: "larskarbo",
-    passwordHash: "qwerty",
-    role: "user"
-}]
-
-const restaurants = [
+const users = [
     {
-        id: "1234-1234",
-        name: "Hey Ho",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        username: "larskarbo",
+        passwordHash: "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
+        role: "user"
     },
     {
-        id: "5098-1529",
-        name: "MacDonalds LA",
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-    }
-]
-
-const reviews = [
-    {
-        id: "8668-7125",
-        user: "larskarbo",
-        role: "user",
-        restaurant: "1234-1234",
-        rating: 5,
-        dateOfVisit: "2020-12-04",
-        text: "This is the best restaurant I have ever visited! Would love to come back."
+        username: "goatman",
+        passwordHash: "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
+        role: "user"
     },
     {
-        id: "9708-8146",
-        user: "larskarbo",
-        restaurant: "5098-1529",
-        rating: 2,
-        dateOfVisit: "2020-12-06",
-        text: "I hate macdonalds\n\nIt is very bad."
-    }
-]
-const comments = [
+        username: "owner1234",
+        passwordHash: "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
+        role: "owner"
+    },
     {
-        id: "2321-9805",
-        user: "larskarbo",
-        review: "3514-5918",
-        text: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo."
+        username: "superowner",
+        passwordHash: "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
+        role: "owner"
     },
 ]
 
-module.exports={
+
+module.exports = {
     users,
-    restaurants,
-    reviews,
-    comments
 }

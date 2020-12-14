@@ -31,6 +31,25 @@ app.get("/users", verify, async (req, res) => {
   res.send(users);
 });
 
+app.get("/myRestaurants", verify, async (req, res) => {
+  if (req.user.role != "owner") {
+    res.send([]);
+  }
+  const restaurants = db.get('restaurants').filter({ owner: req.user.username }).value()
+  const reviews = db.get('reviews').value()
+  const withCount = restaurants.map(restaurant => {
+    const reviewsThis = reviews.filter((review) => review.restaurant == restaurant.id)
+    const numReviews = reviewsThis.length
+    return {
+      ...restaurant,
+      numReviews,
+      reviewsNeedingComment: reviewsThis.filter(review => !review.commentFromOwner).length,
+      avgRating: avgRating(reviewsThis),
+    }
+  })
+  res.send(withCount);
+});
+
 app.get("/restaurants", verify, async (req, res) => {
   const restaurants = db.get('restaurants').value()
   const reviews = db.get('reviews').value()
@@ -40,6 +59,7 @@ app.get("/restaurants", verify, async (req, res) => {
     return {
       ...restaurant,
       numReviews,
+      reviewsNeedingComment: reviewsThis.filter(review => !review.commentFromOwner).length,
       avgRating: avgRating(reviewsThis),
     }
   })
@@ -54,6 +74,41 @@ const avgRating = (reviews) => {
   }
 
 }
+
+app.post("/restaurants/:restaurantId/:reviewId/addComment", verify, async (req, res) => {
+  const restaurantId = req.params.restaurantId
+  const reviewId = req.params.reviewId
+  const restaurant = db.get('restaurants').find({ id: restaurantId }).value()
+  if (!restaurant) {
+    return res.status(404).send({ message: "Not found" })
+  }
+  if (req.user.role == "admin" || (req.user.role == "owner" && restaurant.owner == req.user.username)) {
+    // console.log("🚀 ~ restaurantId", restaurantId)
+
+    var commentFromOwner = req.body.commentFromOwner;
+    console.log("myreview", db.get('reviews')
+    .filter({restaurant: restaurantId})
+    .find({id: reviewId})
+    .value())
+    db.get('reviews')
+      .filter({restaurant: restaurantId})
+      .find({id: reviewId})
+      .assign({ commentFromOwner: commentFromOwner })
+      .write()
+    res.send({success: true})
+    // const reviews = db.get('reviews').filter({ restaurant: restaurantId }).value()
+    // const numReviews = reviews.length
+    // res.send({
+    //   ...restaurant,
+    //   reviews,
+    //   numReviews,
+    //   avgRating: avgRating(reviews)
+    // });
+  } else {
+    return res.status(401).send({ message: "Not allowed" })
+  }
+
+});
 
 app.get("/restaurants/:restaurantId", verify, async (req, res) => {
   const restaurantId = req.params.restaurantId
@@ -73,9 +128,14 @@ app.get("/restaurants/:restaurantId", verify, async (req, res) => {
   });
 });
 
+
 app.get("/reviews", verify, async (req, res) => {
   const reviews = db.get('restaurants').value()
   res.send(reviews);
+});
+
+app.get("/getUser", verify, async (req, res) => {
+  res.send(req.user);
 });
 
 app.post("/reviews/add", verify, async (req, res) => {

@@ -1,23 +1,33 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from "./logo.svg"
 
 
-function Layout({ children }) {
+function Layout({ children, user }) {
 
   return (
-    <div className="flex flex-col items-center bg-gradient-to-tr  from-gray-100 pt-0 to-yellow-50 flex-grow h-screen p-12"
+    <div className="flex flex-col items-center bg-gradient-to-tr  from-gray-100 pt-0 to-yellow-50 flex-grow min-h-screen p-12"
     //  {...getRootProps()}
     >
 
-      <div className=" py-4 w-full">
+      <div className=" py-4 w-full flex justify-between">
         <Link to="/">
-          <img className="w-12" src={logo} />
+          <img className="w-48" src={logo} />
 
         </Link>
+
+        <div>
+          {user &&
+            <>
+              {user.role == "owner" && <NavLink className="mr-8" exact activeClassName="font-bold" to="/my-restaurants">My restaurants</NavLink>}
+              <NavLink className="mr-8" exact activeClassName="font-bold" to="/restaurants">All restaurants</NavLink>
+              {user.username} (<Link className="link" to="/logout">log out</Link>)
+          </>
+          }
+        </div>
       </div>
 
-        {children}
+      {children}
 
     </div>
   );
