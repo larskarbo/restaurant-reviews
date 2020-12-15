@@ -56,11 +56,15 @@ It should now pop up at http://localhost:3000
 
 To test, feel free to use these test accounts:
 
-Normal user - username:"larskarbo" password:"asdf"
-Normal user - username:"goatman" password:"asdf"
-Owner - username:"owner1234" password:"asdf"
-Owner - username:"superowner" password:"asdf"
-Amind - username:"admin" password:"asdf"
+Normal user - username:`larskarbo` password:`asdf`
+
+Normal user - username:`goatman` password:`asdf`
+
+Owner - username:`owner1234` password:`asdf`
+
+Owner - username:`superowner` password:`asdf`
+
+Amind - username:`admin` password:`asdf`
 
 ## Production
 
