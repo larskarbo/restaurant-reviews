@@ -2,7 +2,7 @@ const { db } = require("../database");
 const { avgRating } = require("./avgRating");
 
 const getRestaurants = async (req, res) => {
-  const restaurants = db.get('restaurants').value();
+  const restaurants = db.get('restaurants').value().filter(r => !r.deleted)
   const reviews = db.get('reviews').value();
   const withCount = restaurants.map(restaurant => {
     const reviewsThis = reviews.filter((review) => review.restaurant == restaurant.id);

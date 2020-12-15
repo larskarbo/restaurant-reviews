@@ -6,18 +6,23 @@ const getAllUsers = async (req, res) => {
     return;
   }
 
-  const users = db.get('users').value()
+  const users = [...db.get('users').value()]
 
-  for(const user of users){
+  const usersWithProps = users.map(user => {
+    const newUser = {}
     if(user.role=="owner"){
-      user.restaurants = db.get('restaurants').filter({owner:user.username}).value().length
+      newUser.restaurants = db.get('restaurants').filter({owner:user.username}).value().length
     }
-    user.reviews = db.get('reviews').filter({user:user.username}).value().length
-  }
+    newUser.reviews = db.get('reviews').filter({user:user.username}).value().length
+    return {
+      ...newUser,
+      ...user
+    }
+  })
 
   //send the access token to the client inside a cookie
   res.send({
-    users
+    users: usersWithProps
   });
 };
 exports.getAllUsers = getAllUsers;
