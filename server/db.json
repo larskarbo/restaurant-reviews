@@ -2,7 +2,7 @@
   "users": [
     {
       "username": "larskarbo",
-      "passwordHash": "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
+      "passwordHash": "$2b$10$Ejfq5.9yPvHk0LyxZF35FO7JUfXQRLL25kNNHXQOH7mAHpMgEA8sq",
       "role": "user"
     },
     {
@@ -28,6 +28,21 @@
     {
       "username": "Cyri49",
       "passwordHash": "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
+      "role": "user"
+    },
+    {
+      "username": "user123",
+      "passwordHash": "$2b$10$cU29AZB9cFALkhKTsrLaueNSPRAYjIrDYuMUU/fQH9vUr0N36BZve",
+      "role": "user"
+    },
+    {
+      "username": "user654",
+      "passwordHash": "$2b$10$kPWqibCOtrvAd/YOTYIhEOA.LLN0WSUj..YWgFnjzGR2n.AYeMPB6",
+      "role": "user"
+    },
+    {
+      "username": "user6543",
+      "passwordHash": "$2b$10$5QVTFpNw72TWmVSqTe0tH.MCYV//yfpSK4tCgFKZFE2CPlF06muLG",
       "role": "user"
     }
   ],
@@ -182,7 +197,8 @@
       "rating": 5,
       "text": "In 127 years, little has changed at Katz's. It remains one of New York's — and the country's — essential Jewish delicatessens. Every inch of the massive Lower East Side space smells intensely of pastrami and rye loaves. The sandwiches are massive, so they are best when shared. Order at the counter, and don't forget to tip your slicer — your sandwich will be better for it.",
       "dateOfVisit": "2020-12-04",
-      "restaurant": "7bb3fa34-3014-47d4-b324-d6ae4ef033bf"
+      "restaurant": "7bb3fa34-3014-47d4-b324-d6ae4ef033bf",
+      "commentFromOwner": "Thanks, nice review!"
     },
     {
       "id": "33688d29-f500-4a10-9945-aa3c85f3dc1d",
@@ -353,6 +369,30 @@
       "restaurant": "7bb3fa34-3014-47d4-b324-d6ae4ef033bf",
       "dateOfVisit": "2020-12-15",
       "id": "150711bb-281e-47d2-8955-4ea150e93369"
+    },
+    {
+      "rating": "2",
+      "text": "Bad rest.",
+      "user": "user123",
+      "restaurant": "384bfebf-9a6b-4322-b8aa-3df21454e544",
+      "dateOfVisit": "2020-12-10",
+      "id": "8e083562-6920-498c-ad28-2c11d0b68d56"
+    },
+    {
+      "rating": "4",
+      "text": "good rest.",
+      "user": "user6543",
+      "restaurant": "27dd8e52-c005-4feb-afe6-1c6715a2e58b",
+      "dateOfVisit": "2020-12-04",
+      "id": "a8789b8f-0d25-418f-bf97-d08e01eb3d6f"
+    },
+    {
+      "rating": "4",
+      "text": "Attack.<script>alert()</script>",
+      "user": "user6543",
+      "restaurant": "27dd8e52-c005-4feb-afe6-1c6715a2e58b",
+      "dateOfVisit": "2020-12-04",
+      "id": "486d64b9-a3ab-491b-b491-c1032837f963"
     }
   ]
 }

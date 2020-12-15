@@ -27,6 +27,9 @@ const { editReview } = require("./review/editReview");
 const { login } = require("./user/login");
 const { logout } = require("./user/logout");
 const { register } = require("./user/register");
+const { getAllUsers } = require("./user/getAllUsers");
+const { changePassword } = require("./user/changePassword");
+const { deleteUser } = require("./user/deleteUser");
 
 
 app.get("/", async (req, res) => {
@@ -55,6 +58,10 @@ app.post("/login", login);
 app.get("/logout", logout);
 app.post("/register", register);
 
+// admin
+app.get("/users/all", verify, getAllUsers);
+app.post("/users/changePassword", verify, changePassword);
+app.post("/users/deleteUser", verify, deleteUser);
 
 app.all("/*", (req, res) => {
   return res.status(404).send({

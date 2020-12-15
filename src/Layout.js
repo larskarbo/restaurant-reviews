@@ -19,6 +19,7 @@ function Layout({ children, user }) {
         <div>
           {user &&
             <>
+              {user.role == "admin" && <NavLink className="mr-8" exact activeClassName="font-bold" to="/admin">Admin Panel</NavLink>}
               {user.role == "owner" && <NavLink className="mr-8" exact activeClassName="font-bold" to="/my-restaurants">My restaurants</NavLink>}
               <NavLink className="mr-8" exact activeClassName="font-bold" to="/restaurants">All restaurants</NavLink>
               {user.username} (<Link className="link" to="/logout">log out</Link>)

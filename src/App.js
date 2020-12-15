@@ -12,6 +12,7 @@ import Layout from './Layout';
 import Intro from './Intro';
 import Login from './Login';
 import Restaurants from './Restaurants';
+import Admin from './Admin';
 import Restaurant from './Restaurant';
 import { useEffect, useState } from "react";
 import { request } from "./utils/request";
@@ -59,6 +60,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute user={user} exact path="/my-restaurants">
             <Restaurants user={user} ownerView={true} />
+          </PrivateRoute>
+          <PrivateRoute user={user} exact path="/admin">
+            <Admin user={user} />
           </PrivateRoute>
           <PrivateRoute user={user} path="/restaurants/:restaurantId">
             <Restaurant user={user} />

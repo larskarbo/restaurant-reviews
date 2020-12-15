@@ -3,7 +3,6 @@ const { db } = require("../database");
 
 const addReview = async (req, res) => {
   var rating = req.body.rating;
-  console.log(req.user);
   var text = req.body.text;
   var restaurant = req.body.restaurant;
   var dateOfVisit = req.body.dateOfVisit;
