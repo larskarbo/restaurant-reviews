@@ -2,7 +2,7 @@
   "users": [
     {
       "username": "larskarbo",
-      "passwordHash": "$2b$10$Ejfq5.9yPvHk0LyxZF35FO7JUfXQRLL25kNNHXQOH7mAHpMgEA8sq",
+      "passwordHash": "$2b$10$4vRs4CcDF6QDoGwzeu9PHuFhF/b71qFmpXY6z.fud12I7rKEinVsq",
       "role": "user"
     },
     {
@@ -12,7 +12,7 @@
     },
     {
       "username": "owner1234",
-      "passwordHash": "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
+      "passwordHash": "$2b$10$1Iax/jecSMFMrrtY2njOC.ueNO66U/PUpheL4P9KFkXzPXXRkwu0e",
       "role": "owner"
     },
     {
@@ -43,6 +43,11 @@
     {
       "username": "user6543",
       "passwordHash": "$2b$10$5QVTFpNw72TWmVSqTe0tH.MCYV//yfpSK4tCgFKZFE2CPlF06muLG",
+      "role": "user"
+    },
+    {
+      "username": "larskarboo",
+      "passwordHash": "$2b$10$THP9vIQhxlXd4aJBq1aZ3uvYRpHdh29Wu6pHRWncOiWLdqOazRfmq",
       "role": "user"
     }
   ],

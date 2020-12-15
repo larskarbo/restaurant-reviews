@@ -104,10 +104,13 @@ function Restaurants({ children, ownerView, user }) {
                     <button
                       onClick={() => {
                         const newPassword = prompt("New password");
-                        request("POST", "/users/changePassword", {
-                          username: u.username,
-                          password: newPassword,
-                        })
+                        if (newPassword) {
+                          request("POST", "/users/changePassword", {
+                            username: u.username,
+                            password: newPassword,
+                          })
+
+                        }
                       }}
                       className="mb-4 mr-4 focus:outline-none rounded-3xl flex flex-row items-center justify-center text-xs py-1 px-4 bg-blue-50 hover:bg-gray-200 transition duration-150"
                     >
