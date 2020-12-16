@@ -20,7 +20,6 @@ const changePassword = async (req, res) => {
 
   const user = db.get('users').find({username: username})
 
-  console.log("🚀 ~ user.value()", user.value())
   if(!user.value()){
     return res.status(404).send({message: "could not find user"})
   }

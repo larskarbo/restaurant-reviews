@@ -2,23 +2,8 @@
   "users": [
     {
       "username": "larskarbo",
-      "passwordHash": "$2b$10$4vRs4CcDF6QDoGwzeu9PHuFhF/b71qFmpXY6z.fud12I7rKEinVsq",
+      "passwordHash": "$2b$10$wRhMBOV0vwE1qSKAk8seCeY/hZ6beRYkF1Bcluebqiil70dXpzjnq",
       "role": "user"
-    },
-    {
-      "username": "goatman",
-      "passwordHash": "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
-      "role": "user"
-    },
-    {
-      "username": "owner1234",
-      "passwordHash": "$2b$10$1Iax/jecSMFMrrtY2njOC.ueNO66U/PUpheL4P9KFkXzPXXRkwu0e",
-      "role": "owner"
-    },
-    {
-      "username": "superowner",
-      "passwordHash": "$2b$10$cJsEvUhi0Wep15eLj8RWOu8vNg1B.YWQrkJDZ61EjcBKKiDEfyVSi",
-      "role": "owner"
     },
     {
       "username": "admin",
@@ -57,70 +42,80 @@
       "name": "Mission Chinese Food",
       "owner": "owner1234",
       "description": "Labore id aute ipsum eiusmod cupidatat ea non laboris minim ut ullamco sint consequat do.",
-      "img": "1.jpg"
+      "img": "1.jpg",
+      "deleted": true
     },
     {
       "id": "cc37a73f-2d31-4e59-ad89-7a61de121280",
       "name": "Emily",
       "owner": "superowner",
       "description": "Tempor occaecat cupidatat tempor sit enim aute irure nisi consectetur in.",
-      "img": "2.jpg"
+      "img": "2.jpg",
+      "deleted": true
     },
     {
       "id": "9a165087-51e1-4b7d-8651-cdc41fcba622",
       "name": "Kang Ho Dong Baekjeong",
       "owner": "superowner",
       "description": "Officia ut minim quis minim commodo aliquip aliquip laborum officia cupidatat ipsum ut.",
-      "img": "3.jpg"
+      "img": "3.jpg",
+      "deleted": true
     },
     {
       "id": "7bb3fa34-3014-47d4-b324-d6ae4ef033bf",
       "name": "Katz's Delicatessen",
       "owner": "superowner",
       "description": "Reprehenderit deserunt elit ut ea.",
-      "img": "4.jpg"
+      "img": "4.jpg",
+      "deleted": true
     },
     {
       "id": "f9c6cf78-d2b6-4004-b9cd-168aca51a278",
       "name": "Roberta's Pizza",
       "owner": "owner1234",
       "description": "Dolor enim culpa ad velit duis ad amet elit.",
-      "img": "5.jpg"
+      "img": "5.jpg",
+      "deleted": true
     },
     {
       "id": "b366d235-fbe4-4ea8-a0d5-a7ad0a1a9926",
       "name": "Hometown BBQ",
       "owner": "owner1234",
       "description": "Velit do et adipisicing et veniam eu consequat esse exercitation nisi officia aute ad cillum.",
-      "img": "6.jpg"
+      "img": "6.jpg",
+      "deleted": true
     },
     {
       "id": "b612ced2-809d-4c3a-922d-e509c910fc4f",
       "name": "Superiority Burger",
       "owner": "superowner",
       "description": "Ad amet sint ullamco eiusmod Lorem culpa nostrud culpa sit ad fugiat cupidatat.",
-      "img": "7.jpg"
+      "img": "7.jpg",
+      "deleted": true
     },
     {
       "id": "2cc31497-89e0-4fb3-8769-785f464668b9",
       "name": "The Dutch",
       "owner": "superowner",
       "description": "Dolore ullamco tempor laboris nisi consectetur in in amet ipsum consectetur in Lorem.",
-      "img": "8.jpg"
+      "img": "8.jpg",
+      "deleted": true
     },
     {
       "id": "b1aab406-45ea-41d4-8a4c-edaca92b0e27",
       "name": "Mu Ramen",
       "owner": "owner1234",
       "description": "Id dolore qui consectetur consequat ex mollit magna exercitation.",
-      "img": "9.jpg"
+      "img": "9.jpg",
+      "deleted": true
     },
     {
       "id": "384bfebf-9a6b-4322-b8aa-3df21454e544",
       "name": "Casa Enrique",
       "owner": "superowner",
       "description": "Dolor nisi aute enim ipsum ullamco veniam commodo.",
-      "img": "10.jpg"
+      "img": "10.jpg",
+      "deleted": true
     }
   ],
   "reviews": [
@@ -134,7 +129,7 @@
     },
     {
       "id": "a66b2b9b-88de-4b37-8c4d-8cbfd83b62a2",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 4,
       "text": "This place is a blast. Must orders: GREEN TEA NOODS, sounds gross (to me at least) but these were incredible!, Kung pao pastrami (but you already knew that), beef tartare was a fun appetizer that we decided to try, the spicy ma po tofu SUPER spicy but delicous, egg rolls and scallion pancake i could have passed on... I wish we would have gone with a larger group, so much more I would have liked to try!",
       "dateOfVisit": "2020-12-04",
@@ -142,7 +137,7 @@
     },
     {
       "id": "bc0019fe-7adf-4541-bf29-cd87abf63f30",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 3,
       "text": "I was VERY excited to come here after seeing and hearing so many good things about this place. Having read much, I knew going into it that it was not going to be authentic Chinese. The place was edgy, had a punk rock throwback attitude, and generally delivered the desired atmosphere. Things went downhill from there though. The food was okay at best and the best qualities were easily overshadowed by what I believe to be poor decisions by the kitchen staff.",
       "dateOfVisit": "2020-12-04",
@@ -150,7 +145,7 @@
     },
     {
       "id": "8b52dd82-13f2-4e56-bcbe-7f14d55859a9",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 4,
       "text": "Five star food, two star atmosphere. I would definitely get takeout from this place - but dont think I have the energy to deal with the hipster ridiculousness again. By the time we left the wait was two hours long.",
       "dateOfVisit": "2020-12-04",
@@ -158,7 +153,7 @@
     },
     {
       "id": "08d843b8-b9ac-4a8b-b96e-2a7417ea96fa",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 4,
       "text": "This cozy Clinton Hill restaurant excels at both straightforward and unusual wood-fired pizzas. If you want a taste of the latter, consider ordering the Emily, which is topped with mozzarella, pistachios, truffled sottocenere cheese, and honey. The menu includes salads and a handful of starters, as well as a burger that some meat connoisseurs consider to be among the best in the city.",
       "dateOfVisit": "2020-12-04",
@@ -166,7 +161,7 @@
     },
     {
       "id": "c0faf8d4-472d-4af0-9491-11deb0483737",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 5,
       "text": "5 star atmosphere as it is very cozy with great staff. 5 star food as their Emmy burger is outrageously good. and its on a pretzel bun.. Too juicy for its own good and downright addicting. Also try the Colony pizza. Many others looked like worth competitors, but the Colony really found its way to my heart. when you start with a great crust, top it with top notch cheese and sauce, you've got a winner. But, if you go a step further and add the salty from the pepperoni, the sweet from the honey, and the spicy from the chili oil.... your mouth is confused and happy at the same time.",
       "dateOfVisit": "2020-12-04",
@@ -182,7 +177,7 @@
     },
     {
       "id": "0bd84d60-b45c-4304-b0fc-5cb27e95ec76",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 5,
       "text": "I've been to Korea before and many other Korean BBQ places. We had the regular pork belly and a beef (forgot which cut) and a seafood tofu soup. Two meat and a soup was just prefect for the two of us. We could have done one meat and one soup. The portions of the meat are great! The beef was juicy, tender and so good. The sides were excellent. ",
       "dateOfVisit": "2020-12-04",
@@ -190,7 +185,7 @@
     },
     {
       "id": "dce2ab28-5ce7-4aac-9beb-170e403205c5",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 2,
       "text": "MEH. I've tried their Jersey location as well but Kang Ho Dong meat quality is severely decreasing. A Korean bbq place with whatever meat? I think NOT!",
       "dateOfVisit": "2020-12-04",
@@ -198,7 +193,7 @@
     },
     {
       "id": "1710f86d-cc06-4c2b-ae2b-da78f0555c29",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 5,
       "text": "In 127 years, little has changed at Katz's. It remains one of New York's — and the country's — essential Jewish delicatessens. Every inch of the massive Lower East Side space smells intensely of pastrami and rye loaves. The sandwiches are massive, so they are best when shared. Order at the counter, and don't forget to tip your slicer — your sandwich will be better for it.",
       "dateOfVisit": "2020-12-04",
@@ -232,7 +227,7 @@
     },
     {
       "id": "69841b1e-a582-4b2b-84b2-e598bc0f0521",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 4,
       "text": "Roberta's, one of the better pizzas I have had in my life. Very trendy and hipsterish spot. Came here for lunch on a random weekday afternoon and when we arrived, there was a line forming already. The space is a bit cramped. You'll get to know your neighbors soon enough. The pizza is just delightful and delicious. It's a ncie plus that you get to see them firing up the pizzas in the corner. The major issue with Roberta's is the trek out to the Williamsburg/Bushwick.",
       "dateOfVisit": "2020-12-04",
@@ -240,7 +235,7 @@
     },
     {
       "id": "7c1d11dc-638b-4938-9711-b601d69ee250",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 4,
       "text": "The pizza is fantastic, not THE best I've ever had, but would definitely go back since it has great food and great ambiance. Definitely worth going to. It has A LOT of hype in the New York food scene, and I question if it deserves all of it, but it's still a totally great spot to hit up when in the area!!",
       "dateOfVisit": "2020-12-04",
@@ -256,7 +251,7 @@
     },
     {
       "id": "c3d78071-1ed5-420e-ae80-648666dc33cc",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 4,
       "text": "Overall, a great try of New York BBQ. The restaurant décor is rustic with a good amount of seats to sit and enjoy the meal. I definitely would love to come back and try that monster of a beef rib!",
       "dateOfVisit": "2020-12-04",
@@ -264,7 +259,7 @@
     },
     {
       "id": "bf1f3f73-128f-4617-a3a8-3360dd57b359",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 4,
       "text": "mmmmmm, what a gem this is in bklyn! I loveeee how soft their brisket is here. Their pork tacos are to die for, their different variety of ribs and lastly, their lamb is not gamey at all. Super wallet friendly for the amount they give you. I highly recommend this spot- after eating here, you can definitely walk over for Steve's key lime pies.",
       "dateOfVisit": "2020-12-04",
@@ -288,7 +283,7 @@
     },
     {
       "id": "89571305-b236-4527-b183-3b628b3d304d",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 4,
       "text": "Great flavors and very satisfying. Craving a sandwich, I stopped by on a Friday night with a vegetarian friend. Super small location with just a few seats inside. Ambiance is a bit industrial, good is definitely much more sophisticated than the look of the place! Ordered the superiority burger anda side of potato salad. The potato salad was very light and tasted clean ( less mayo, lots of dill and some cucumber) -- refreshing for a humid summer night! Sandwich was surprisingly delicious - it is very small ( funny allusion to a White Castle burger) but it packs a punch! Not only are there layers of flavors ( amazing sauces) but the party itself had a great texture Ahmed flavor-- well done and so wonderful! Will definitely stop by again for an overall amazing burger/sandwich. Staff was super nice and accommodating but not out of the way friendly.",
       "dateOfVisit": "2020-12-04",
@@ -296,7 +291,7 @@
     },
     {
       "id": "8f746536-4113-4fd2-819c-a1ff0c571865",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 4,
       "text": "Over the last five years, The Dutch has turned into the quintessential American restaurant that chef Andrew Carmellini and partners Josh Pickard and Luke Ostrom sought to evoke when it first opened. It’s a great choice when you’re craving a steak, a burger, or oysters, and the menu always includes plentiful seafood options as well as pastas. The Dutch is now an indelible part of the Soho landscape.",
       "dateOfVisit": "2020-12-04",
@@ -304,7 +299,7 @@
     },
     {
       "id": "97343410-d093-439a-b80d-0bfdc111c83f",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 4,
       "text": "I randomly came here on a Saturday night. I was pleasantly surprised with the food and the service. We had the calamari and the ceviche with avocado, and then the catfish. Oh! Then we had the banana soufflé for dessert with ice cream. It was all delicious and well put together. Would love to eat here again.",
       "dateOfVisit": "2020-12-04",
@@ -344,7 +339,7 @@
     },
     {
       "id": "22c9f79d-10c9-43b7-83e1-44e064ea1fb6",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 5,
       "text": "Head to this laid-back Long Island City restaurant for beef tongue tacos, chicken smothered in a heady mole sauce, and a monster crab tostada. New York's only Michelin-starred Mexican restaurant is an especially cool choice for lunch during the week or drinks after work. Eater critic Ryan Sutton awarded this restaurant two stars.",
       "dateOfVisit": "2020-12-04",
@@ -353,7 +348,7 @@
     },
     {
       "id": "8cf595a1-a38b-40e3-98a3-6027a00c6262",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 5,
       "text": "The hype was real. Please go. Get the ceviche. And the tres leches. You're welcome",
       "dateOfVisit": "2020-12-04",
@@ -361,7 +356,7 @@
     },
     {
       "id": "883cc3d7-cb44-42cd-801b-f6933fb5ed63",
-      "user": "goatman",
+      "user": "[deleted]",
       "rating": 4,
       "text": "For a Michelin star restaurant, it's fairly priced and the food is fairly good. Started with a strawberry margarita which was good in flavor but not much alcohol. Had the chicken enchiladas with salsa verde and it was really good. Great balance in flavor and a good portion. Extra tasty with their hot sauces. My wife had the lamb but it was a bit too salty for our taste. Although, it was cooked very well and fell off the bone. The highlight of the night was the tres leches cake. Probably the best I've ever had to be honest. Not too sweet and very milky. Overall, one of my top 3 favorite Mexican in NY.",
       "dateOfVisit": "2020-12-04",
